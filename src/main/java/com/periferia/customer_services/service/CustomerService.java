@@ -3,6 +3,7 @@ package com.periferia.customer_services.service;
 import com.periferia.customer_services.persistence.entity.CustomerEntity;
 import com.periferia.customer_services.persistence.repository.CustomerRepository;
 import com.periferia.customer_services.service.dto.CreateCustomerDto;
+import com.periferia.customer_services.service.dto.CustomerAgeAverageDto;
 import com.periferia.customer_services.service.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,10 @@ public class CustomerService {
                 ))
                 .sorted(Comparator.comparingInt(CustomerDto::getAge))
                 .collect(Collectors.toList());
+    }
+
+    public CustomerAgeAverageDto getCustomerAgeAverage() {
+        return customerRepository.getCustomerAgeAverage();
     }
 
     private Integer calculateAge(LocalDate dateOfBirth) {

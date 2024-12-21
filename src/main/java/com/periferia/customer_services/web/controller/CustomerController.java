@@ -3,6 +3,7 @@ package com.periferia.customer_services.web.controller;
 import com.periferia.customer_services.persistence.entity.CustomerEntity;
 import com.periferia.customer_services.service.CustomerService;
 import com.periferia.customer_services.service.dto.CreateCustomerDto;
+import com.periferia.customer_services.service.dto.CustomerAgeAverageDto;
 import com.periferia.customer_services.service.dto.CustomerDto;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,10 @@ public class CustomerController {
     @GetMapping("/allByAge")
     public List<CustomerDto> getCustomersSortedByAge() {
         return customerService.getAllCustomersSortedByAge();
+    }
+
+    @GetMapping("/ageAverageCustomers")
+    public CustomerAgeAverageDto getAgeAverage() {
+        return customerService.getCustomerAgeAverage();
     }
 }
