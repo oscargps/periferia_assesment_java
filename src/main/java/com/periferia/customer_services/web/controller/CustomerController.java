@@ -2,6 +2,7 @@ package com.periferia.customer_services.web.controller;
 
 import com.periferia.customer_services.persistence.entity.CustomerEntity;
 import com.periferia.customer_services.service.CustomerService;
+import com.periferia.customer_services.service.dto.CustomerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,8 @@ public class CustomerController {
         return ResponseEntity.ok(this.customerService.getAllCustomersSorted());
     }
 
+    @GetMapping("/allByAge")
+    public List<CustomerDto> getCustomersSortedByAge() {
+        return customerService.getAllCustomersSortedByAge();
+    }
 }
